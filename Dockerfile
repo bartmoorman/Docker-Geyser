@@ -1,7 +1,7 @@
-FROM bmoorman/ubuntu:bionic
+FROM bmoorman/ubuntu:focal
 
-ARG DEBIAN_FRONTEND=noninteractive
-ARG GEYSER_PORT=19132/udp
+ARG DEBIAN_FRONTEND=noninteractive \
+    GEYSER_PORT=19132/udp
 
 WORKDIR /var/lib/geyser
 
