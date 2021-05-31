@@ -1,4 +1,4 @@
-FROM bmoorman/ubuntu:focal
+FROM bmoorman/ubuntu:bionic
 
 ARG DEBIAN_FRONTEND=noninteractive \
     GEYSER_PORT=19132/udp
