@@ -7,7 +7,7 @@ WORKDIR /var/lib/geyser
 
 RUN apt-get update \
  && apt-get install --yes --no-install-recommends \
-    openjdk-8-jre-headless \
+    default-jre-headless \
     vim \
     wget \
  && wget --quiet --directory-prefix /opt/geyser https://ci.nukkitx.com/job/GeyserMC/job/Geyser/job/master/lastSuccessfulBuild/artifact/bootstrap/standalone/target/Geyser.jar \
