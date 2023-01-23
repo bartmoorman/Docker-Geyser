@@ -1,4 +1,4 @@
-FROM bmoorman/ubuntu:focal
+FROM bmoorman/ubuntu:jammy
 
 ARG DEBIAN_FRONTEND=noninteractive \
     GEYSER_PORT=19132/udp
@@ -7,10 +7,10 @@ WORKDIR /var/lib/geyser
 
 RUN apt-get update \
  && apt-get install --yes --no-install-recommends \
-    default-jre-headless \
+    openjdk-17-jre-headless \
     vim \
     wget \
- && wget --quiet --directory-prefix /opt/geyser https://ci.nukkitx.com/job/GeyserMC/job/Geyser/job/master/lastSuccessfulBuild/artifact/bootstrap/standalone/target/Geyser.jar \
+ && wget --quiet --directory-prefix /opt/geyser https://ci.nukkitx.com/job/GeyserMC/job/Geyser/job/master/lastSuccessfulBuild/artifact/bootstrap/standalone/target/Geyser-Standalone.jar \
  && apt-get autoremove --yes --purge \
  && apt-get clean \
  && rm --recursive --force /var/lib/apt/lists/* /tmp/* /var/tmp/*
