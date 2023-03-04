@@ -10,7 +10,7 @@ RUN apt-get update \
     openjdk-17-jre-headless \
     vim \
     wget \
- && wget --quiet --directory-prefix /opt/geyser https://ci.nukkitx.com/job/GeyserMC/job/Geyser/job/master/lastSuccessfulBuild/artifact/bootstrap/standalone/target/Geyser-Standalone.jar \
+ && wget --quiet --directory-prefix /opt/geyser "https://ci.geysermc.org/job/GeyserMC/job/Geyser/job/master/lastSuccessfulBuild/artifact/bootstrap/standalone/build/libs/Geyser-Standalone.jar" \
  && apt-get autoremove --yes --purge \
  && apt-get clean \
  && rm --recursive --force /var/lib/apt/lists/* /tmp/* /var/tmp/*
