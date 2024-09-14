@@ -3,17 +3,19 @@ FROM bmoorman/ubuntu:jammy
 ARG DEBIAN_FRONTEND=noninteractive \
     GEYSER_PORT=19132/udp
 
-WORKDIR /var/lib/geyser
+WORKDIR /opt/geyser
 
 RUN apt-get update \
  && apt-get install --yes --no-install-recommends \
-    openjdk-17-jre-headless \
+    openjdk-21-jre-headless \
     vim \
     wget \
- && wget --quiet --directory-prefix /opt/geyser "https://ci.geysermc.org/job/GeyserMC/job/Geyser/job/master/lastSuccessfulBuild/artifact/bootstrap/standalone/build/libs/Geyser-Standalone.jar" \
+ && wget --quiet --output-document "Geyser-Standalone.jar" "https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/standalone" \
  && apt-get autoremove --yes --purge \
  && apt-get clean \
  && rm --recursive --force /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+WORKDIR /var/lib/geyser
 
 COPY geyser/ /etc/geyser/
 
